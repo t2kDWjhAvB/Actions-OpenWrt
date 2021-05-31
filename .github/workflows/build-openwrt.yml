@@ -135,6 +135,15 @@ jobs:
       with:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
+        
+    - name: send firmware to telegram
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_TO }}
+        token: ${{ secrets.TELEGRAM_TOKEN }}
+        message: send firmware file
+        document: ${{ env.FIRMWARE }}/OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+
 
     - name: Upload firmware to cowtransfer
       id: cowtransfer
