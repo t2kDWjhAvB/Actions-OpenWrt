@@ -142,8 +142,7 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: send firmware file
-        document: ${{ env.FIRMWARE }}/OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        message_file: ${{ env.FIRMWARE }}/OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
 
 
     - name: Upload firmware to cowtransfer
